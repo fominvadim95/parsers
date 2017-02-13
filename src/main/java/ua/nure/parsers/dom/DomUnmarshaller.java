@@ -118,7 +118,6 @@ public class DomUnmarshaller implements Unmarshaller {
         }
     }
 
-
     private Player getPlayer(Element playerElement) {
         Player player = new Player();
         player.setId(playerElement.getAttributeNode(ID).getTextContent());
@@ -156,6 +155,4 @@ public class DomUnmarshaller implements Unmarshaller {
         return stadium;
 
     }
-
-
 }

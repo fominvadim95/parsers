@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Elements definition -->
+    <xs:simpleType name="PlayerAge">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="16"/>
+            <xs:maxInclusive value="45"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="CoachAge">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="20"/>
+            <xs:maxInclusive value="80"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Experience">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="40"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Cost">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="300"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Position">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CB"/>
+            <xs:enumeration value="FB"/>
+            <xs:enumeration value="CM"/>
+            <xs:enumeration value="FM"/>
+            <xs:enumeration value="F"/>
+            <xs:enumeration value="G"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Year">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1900"/>
+            <xs:maxInclusive value="2100"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Capacity">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1000"/>
+            <xs:maxInclusive value="200000"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Info">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="country" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PlayerInfo">
+        <xs:complexContent>
+            <xs:extension base="Info">
+                <xs:sequence>
+                    <xs:element name="age" type="PlayerAge"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CoachInfo">
+        <xs:complexContent>
+            <xs:extension base="Info">
+                <xs:sequence>
+                    <xs:element name="age" type="CoachAge"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="StadiumInfo">
+        <xs:complexContent>
+            <xs:extension base="Info">
+                <xs:sequence>
+                    <xs:element name="city" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Player">
+        <xs:sequence>
+            <xs:element name="general" type="PlayerInfo"/>
+            <xs:element name="cost" type="Cost"/>
+            <xs:element name="position" type="Position"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="Coach">
+        <xs:sequence>
+            <xs:element name="general" type="CoachInfo"/>
+            <xs:element name="experience" type="Experience"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="Sponsor">
+        <xs:sequence>
+            <xs:element name="general" type="Info"/>
+            <xs:element name="year" type="Year"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="Stadium">
+        <xs:sequence>
+            <xs:element name="general" type="StadiumInfo"/>
+            <xs:element name="capacity" type="Capacity"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Team">
+        <xs:sequence>
+            <xs:element name="general" type="Info"/>
+
+            <xs:element name="players">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="player" type="Player" minOccurs="1"
+                                    maxOccurs="11"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="coach" type="Coach"/>
+
+            <xs:element name="sponsors">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="sponsor" type="Sponsor" minOccurs="1"
+                                    maxOccurs="25"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="stadium" type="Stadium"/>
+
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+    <!-- Elements manipulation -->
+    <xs:element name="teams">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="team" type="Team" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

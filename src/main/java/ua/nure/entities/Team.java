@@ -81,6 +81,7 @@ public class Team {
         return general;
     }
 
+
     /**
      * Sets the value of the general property.
      * 
@@ -211,6 +212,18 @@ public class Team {
      */
     public void setId(String value) {
         this.id = value;
+    }
+
+    @Override
+    public String toString() {
+        return "Team{" +
+                "general=" + general +
+                ", players=" + players +
+                ", coach=" + coach +
+                ", sponsors=" + sponsors +
+                ", stadium=" + stadium +
+                ", id='" + id + '\'' +
+                '}';
     }
 
 }

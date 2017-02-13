@@ -100,4 +100,11 @@ public class Info {
         this.country = value;
     }
 
+    @Override
+    public String toString() {
+        return "Info{" +
+                "name='" + name + '\'' +
+                ", country='" + country + '\'' +
+                '}';
+    }
 }

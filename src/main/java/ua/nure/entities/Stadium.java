@@ -87,4 +87,11 @@ public class Stadium {
         this.capacity = value;
     }
 
+    @Override
+    public String toString() {
+        return "Stadium{" +
+                "general=" + general +
+                ", capacity=" + capacity +
+                '}';
+    }
 }

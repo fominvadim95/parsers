@@ -16,9 +16,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for StadiumInfo complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="StadiumInfo">
  *   &lt;complexContent>
@@ -30,27 +30,22 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "StadiumInfo", propOrder = {
-    "city"
+        "city"
 })
 public class StadiumInfo
-    extends Info
-{
+        extends Info {
 
     @XmlElement(required = true)
     protected String city;
 
     /**
      * Gets the value of the city property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCity() {
         return city;
@@ -58,14 +53,18 @@ public class StadiumInfo
 
     /**
      * Sets the value of the city property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCity(String value) {
         this.city = value;
     }
 
+    @Override
+    public String toString() {
+        return "StadiumInfo{" +
+                "city='" + city + '\'' + ", " + super.toString() +
+                '}';
+    }
 }

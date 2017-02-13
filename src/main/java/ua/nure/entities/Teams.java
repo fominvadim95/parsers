@@ -75,4 +75,14 @@ public class Teams {
         return this.team;
     }
 
+    public void setTeam(List<Team> team) {
+        this.team = team;
+    }
+
+    @Override
+    public String toString() {
+        return "Teams{" +
+                "team=" + team +
+                '}';
+    }
 }

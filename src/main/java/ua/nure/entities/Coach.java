@@ -121,4 +121,12 @@ public class Coach {
         this.id = value;
     }
 
+    @Override
+    public String toString() {
+        return "Coach{" +
+                "general=" + general +
+                ", experience=" + experience +
+                ", id='" + id + '\'' +
+                '}';
+    }
 }

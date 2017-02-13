@@ -60,4 +60,10 @@ public class PlayerInfo
         this.age = value;
     }
 
+    @Override
+    public String toString() {
+        return "PlayerInfo{" +
+                "age=" + age +  ", " + super.toString() +
+                '}';
+    }
 }

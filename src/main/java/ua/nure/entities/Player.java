@@ -150,4 +150,13 @@ public class Player {
         this.id = value;
     }
 
+    @Override
+    public String toString() {
+        return "Player{" +
+                "general=" + general +
+                ", cost=" + cost +
+                ", position=" + position +
+                ", id='" + id + '\'' +
+                '}';
+    }
 }

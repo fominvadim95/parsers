@@ -121,4 +121,12 @@ public class Sponsor {
         this.id = value;
     }
 
+    @Override
+    public String toString() {
+        return "Sponsor{" +
+                "general=" + general +
+                ", year=" + year +
+                ", id='" + id + '\'' +
+                '}';
+    }
 }

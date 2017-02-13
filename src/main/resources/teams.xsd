@@ -124,32 +124,27 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="Players">
+        <xs:sequence>
+            <xs:element name="player" type="Player" minOccurs="1"
+                        maxOccurs="11"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Sponsors">
+        <xs:sequence>
+            <xs:element name="sponsor" type="Sponsor" minOccurs="1"
+                        maxOccurs="25"/>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="Team">
         <xs:sequence>
             <xs:element name="general" type="Info"/>
-
-            <xs:element name="players">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="player" type="Player" minOccurs="1"
-                                    maxOccurs="11"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-
+            <xs:element name="players" type="Players"/>
             <xs:element name="coach" type="Coach"/>
-
-            <xs:element name="sponsors">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="sponsor" type="Sponsor" minOccurs="1"
-                                    maxOccurs="25"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-
+            <xs:element name="sponsors" type="Sponsors"/>
             <xs:element name="stadium" type="Stadium"/>
-
         </xs:sequence>
         <xs:attribute name="id" type="xs:ID" use="required"/>
     </xs:complexType>

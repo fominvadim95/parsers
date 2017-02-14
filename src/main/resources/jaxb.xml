@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<teams xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="teams.xsd">
+    <team id="t1">
+        <general>
+            <name>Real Madrid</name>
+            <country>Spain</country>
+        </general>
+        <players>
+            <player id="p1">
+                <general>
+                    <name>Ronaldo</name>
+                    <country>Portugal</country>
+                    <age>32</age>
+                </general>
+                <cost>150</cost>
+                <position>FB</position>
+            </player>
+        </players>
+        <coach id="c1">
+            <general>
+                <name>Zidane</name>
+                <country>France</country>
+                <age>44</age>
+            </general>
+            <experience>7</experience>
+        </coach>
+        <sponsors>
+            <sponsor id="sp1">
+                <general>
+                    <name>Emirates Airlines</name>
+                    <country>UAE</country>
+                </general>
+                <year>2020</year>
+            </sponsor>
+        </sponsors>
+        <stadium id="st1">
+            <general>
+                <name>Santiago Bernabeu</name>
+                <country>Spain</country>
+                <city>Madrid</city>
+            </general>
+            <capacity>81044</capacity>
+        </stadium>
+    </team>
+</teams>

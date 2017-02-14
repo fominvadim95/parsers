@@ -1,30 +1,54 @@
 package ua.nure.utils;
 
-
 import ua.nure.entities.Teams;
-import ua.nure.parsers.Marshaller;
-import ua.nure.parsers.Unmarshaller;
+import ua.nure.parsers.TeamsMarshaller;
+import ua.nure.parsers.TeamsUnmarshaller;
 import ua.nure.parsers.dom.DomMarshaller;
 import ua.nure.parsers.dom.DomUnmarshaller;
+import ua.nure.parsers.jaxb.JAXBMarshaller;
+import ua.nure.parsers.jaxb.JAXBUnmarshaller;
 
 import java.io.File;
 
 public class Executor {
 
-    private static final String INPUT_FILE = "src/main/resources/teams.xml";
+    public static final String DOM = "DOM Parser";
+    public static final String JAXB = "JAXB Parser";
+    public static final String SAX = "SAX Parser";
+    public static final String LINE = "-------------------------";
 
-    private static final String OUTPUT_FILE = "src/main/resources/output/dom.xml";
+    private static final String INPUT_FILE = "src/main/resources/teams.xml";
+    private static final String OUTPUT_JAXB = "src/main/resources/jaxb.xml";
+    private static final String OUTPUT_DOM = "src/main/resources/dom.xml";
+
 
     public static void main(String[] args) {
 
-        System.out.println("DOM Parser");
-        Unmarshaller unmarshaller = new DomUnmarshaller();
-        Marshaller marshaller = new DomMarshaller();
-        Teams teams = unmarshaller.unmarshall(new File(INPUT_FILE));
+        System.out.println(DOM);
+        System.out.println(LINE);
+
+        TeamsUnmarshaller unmarshaller = new DomUnmarshaller();
+        Teams teams = unmarshaller.unmarshal(new File(INPUT_FILE));
         System.out.println(teams);
-        marshaller.marshall(teams,new File(OUTPUT_FILE));
 
+        TeamsMarshaller marshaller = new DomMarshaller();
+        marshaller.marshal(teams, new File(OUTPUT_DOM));
 
+        System.out.println(JAXB);
+        System.out.println(LINE);
+
+        TeamsUnmarshaller jaxbUnmarshaller = new JAXBUnmarshaller();
+        teams = jaxbUnmarshaller.unmarshal(new File(INPUT_FILE));
+        System.out.println(teams);
+
+        TeamsMarshaller jaxbMarshaller = new JAXBMarshaller();
+        EntityCreator creator = new EntityCreator();
+        teams = creator.createTeams();
+        jaxbMarshaller.marshal(teams, new File(OUTPUT_JAXB));
+
+//        System.out.println(SAX);
+//        System.out.println(LINE);
+//        Uliana's code
     }
 
 }

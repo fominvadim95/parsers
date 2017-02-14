@@ -1,7 +1,6 @@
 package ua.nure.utils;
 
-
-public class XmlElements {
+public class XMLTag {
 
     public static final String TEAMS = "teams";
 

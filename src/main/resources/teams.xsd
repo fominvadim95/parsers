@@ -122,6 +122,7 @@
             <xs:element name="general" type="StadiumInfo"/>
             <xs:element name="capacity" type="Capacity"/>
         </xs:sequence>
+		<xs:attribute name="id" type="xs:ID" use="required"/>
     </xs:complexType>
 
     <xs:complexType name="Players">

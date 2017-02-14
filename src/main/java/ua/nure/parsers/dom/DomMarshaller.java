@@ -4,7 +4,7 @@ package ua.nure.parsers.dom;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import ua.nure.entities.*;
-import ua.nure.parsers.Marshaller;
+import ua.nure.parsers.TeamsMarshaller;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -19,25 +19,32 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import static ua.nure.utils.XmlElements.*;
+import static ua.nure.utils.XMLTag.*;
 
-public class DomMarshaller implements Marshaller {
+public class DomMarshaller implements TeamsMarshaller {
+
+    private static final String NAMESPACE = "xmlns:xsi";
+
+    private static final String NAMESPACE_VALUE = "http://www.w3.org/2001/XMLSchema-instance";
+
+    private static final String SCHEMA_LOCATION = "xsi:noNamespaceSchemaLocation";
+
+    private static final String SCHEMA_LOCATION_VALUE = "teams.xsd";
 
     @Override
-    public void marshall(Teams teams, File file) {
+    public void marshal(Teams teams, File file) {
 
         DocumentBuilder documentBuilder = null;
         try {
             documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             Document document = documentBuilder.newDocument();
             Element root = document.createElement(TEAMS);
-            root.setAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
-            root.setAttribute("xsi:noNamespaceSchemaLocation", "../teams.xsd");
+            root.setAttribute(NAMESPACE, NAMESPACE_VALUE);
+            root.setAttribute(SCHEMA_LOCATION, SCHEMA_LOCATION_VALUE);
             document.appendChild(root);
 
             for (Team team : teams.getTeam()) {
-
-                root.appendChild(teamElement);
+                root.appendChild(getTeam(team, document));
             }
 
             Transformer tr = TransformerFactory.newInstance().newTransformer();
@@ -58,13 +65,29 @@ public class DomMarshaller implements Marshaller {
 
     }
 
-    private Element getTeam(Team team, Document document){
+    private Element getTeam(Team team, Document document) {
         Element teamElement = document.createElement(TEAM);
-        Element
         teamElement.setAttribute(ID, team.getId());
         teamElement.appendChild(getGeneralInfo(team.getGeneral(), document));
 
+        Element playersElement = document.createElement(PLAYERS);
+        for (Player player : team.getPlayers().getPlayer()) {
+            Element playerElement = getPlayer(player, document);
+            playersElement.appendChild(playerElement);
+        }
+        teamElement.appendChild(playersElement);
 
+        teamElement.appendChild(getCoach(team.getCoach(), document));
+
+        Element sponsorsElement = document.createElement(SPONSORS);
+        for (Sponsor sponsor : team.getSponsors().getSponsor()) {
+            Element sponsorElement = getSponsor(sponsor, document);
+            sponsorsElement.appendChild(sponsorElement);
+        }
+        teamElement.appendChild(sponsorsElement);
+        teamElement.appendChild(getStadium(team.getStadium(), document));
+
+        return teamElement;
     }
 
     private Element getGeneralInfo(Info info, Document document) {
@@ -132,20 +155,21 @@ public class DomMarshaller implements Marshaller {
         Element sponsorElement = document.createElement(SPONSOR);
         sponsorElement.setAttribute(ID, sponsor.getId());
         Element general = getGeneralInfo(sponsor.getGeneral(), document);
-        Element year = document.createElement(SPONSOR);
+        Element year = document.createElement(YEAR);
         year.setTextContent(String.valueOf(sponsor.getYear()));
         sponsorElement.appendChild(general);
         sponsorElement.appendChild(year);
         return sponsorElement;
     }
 
-    private Element getStadium(Stadium stadium, Document document){
-        Element stadiumEelement = document.createElement(STADIUM);
-        Element general = getStadiumInfo(stadium.getGeneral(),document);
+    private Element getStadium(Stadium stadium, Document document) {
+        Element stadiumElement = document.createElement(STADIUM);
+        stadiumElement.setAttribute(ID, stadium.getId());
+        Element general = getStadiumInfo(stadium.getGeneral(), document);
         Element capacity = document.createElement(CAPACITY);
         capacity.setTextContent(String.valueOf(stadium.getCapacity()));
-        stadiumEelement.appendChild(general);
-        stadiumEelement.appendChild(capacity);
-        return stadiumEelement;
+        stadiumElement.appendChild(general);
+        stadiumElement.appendChild(capacity);
+        return stadiumElement;
     }
 }

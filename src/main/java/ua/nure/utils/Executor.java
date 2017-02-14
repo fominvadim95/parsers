@@ -3,6 +3,7 @@ package ua.nure.utils;
 import ua.nure.entities.Teams;
 import ua.nure.parsers.TeamsMarshaller;
 import ua.nure.parsers.TeamsUnmarshaller;
+import ua.nure.parsers.dom.DomMarshaller;
 import ua.nure.parsers.dom.DomUnmarshaller;
 import ua.nure.parsers.jaxb.JAXBMarshaller;
 import ua.nure.parsers.jaxb.JAXBUnmarshaller;
@@ -18,6 +19,8 @@ public class Executor {
 
     private static final String INPUT_FILE = "src/main/resources/teams.xml";
     private static final String OUTPUT_JAXB = "src/main/resources/jaxb.xml";
+    private static final String OUTPUT_DOM = "src/main/resources/dom.xml";
+
 
     public static void main(String[] args) {
 
@@ -27,6 +30,9 @@ public class Executor {
         TeamsUnmarshaller unmarshaller = new DomUnmarshaller();
         Teams teams = unmarshaller.unmarshal(new File(INPUT_FILE));
         System.out.println(teams);
+
+        TeamsMarshaller marshaller = new DomMarshaller();
+        marshaller.marshal(teams, new File(OUTPUT_DOM));
 
         System.out.println(JAXB);
         System.out.println(LINE);

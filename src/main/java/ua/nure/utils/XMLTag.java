@@ -2,9 +2,15 @@ package ua.nure.utils;
 
 public class XMLTag {
 
+    public static final String TEAMS = "teams";
+
+    public static final String TEAM = "team";
+
     public static final String ID = "id";
 
     public static final String GENERAL = "general";
+
+    public static final String PLAYERS = "players";
 
     public static final String PLAYER = "player";
 
@@ -21,6 +27,8 @@ public class XMLTag {
     public static final String COACH = "coach";
 
     public static final String EXPERIENCE = "experience";
+
+    public static final String SPONSORS = "sponsors";
 
     public static final String SPONSOR = "sponsor";
 

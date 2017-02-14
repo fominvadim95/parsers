@@ -1,11 +1,11 @@
 package ua.nure.parsers;
 
-
 import ua.nure.entities.Teams;
 
 import java.io.File;
 
-public interface Unmarshaller {
+public interface TeamsUnmarshaller {
 
-    Teams unmarshall(File file);
+    Teams unmarshal(File file);
+
 }

@@ -1,13 +1,12 @@
 package ua.nure.parsers.dom;
 
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import ua.nure.entities.*;
-import ua.nure.parsers.Unmarshaller;
+import ua.nure.parsers.TeamsUnmarshaller;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -16,13 +15,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import static ua.nure.utils.XmlElements.*;
 
+import static ua.nure.utils.XMLTag.*;
 
-public class DomUnmarshaller implements Unmarshaller {
+public class DomUnmarshaller implements TeamsUnmarshaller {
 
     @Override
-    public Teams unmarshall(File file) {
+    public Teams unmarshal(File file) {
         Teams teams = new Teams();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = null;
@@ -37,11 +36,7 @@ public class DomUnmarshaller implements Unmarshaller {
                     teams.getTeam().add(getTeam(teamElement));
                 }
             }
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
 
@@ -60,13 +55,13 @@ public class DomUnmarshaller implements Unmarshaller {
         for (int i = 0; i < playersNodeList.getLength(); i++) {
             playerList.add(getPlayer((Element) playersNodeList.item(i)));
         }
-        players.setPlayer(playerList);
+        players.getPlayer().addAll(playerList);
 
         NodeList sponsorsNodeList = teamElement.getElementsByTagName(SPONSOR);
         for (int i = 0; i < sponsorsNodeList.getLength(); i++) {
             sponsorList.add(getSponsor((Element) sponsorsNodeList.item(i)));
         }
-        sponsors.setSponsor(sponsorList);
+        sponsors.getSponsor().addAll(sponsorList);
 
         team.setId(teamElement.getAttributeNode(ID).getTextContent());
         team.setGeneral(getInfo(general));
@@ -77,7 +72,6 @@ public class DomUnmarshaller implements Unmarshaller {
 
         return team;
     }
-
 
     private Info getInfo(Element infoElement) {
         String parentName = infoElement.getParentNode().getNodeName();
@@ -92,7 +86,6 @@ public class DomUnmarshaller implements Unmarshaller {
                 coachInfo.setName(name);
                 coachInfo.setAge(coachAge);
                 return coachInfo;
-
 
             case PLAYER:
                 PlayerInfo playerInfo = new PlayerInfo();
@@ -126,7 +119,6 @@ public class DomUnmarshaller implements Unmarshaller {
         player.setCost(Integer.parseInt(playerElement.getElementsByTagName(COST).item(0).getTextContent()));
         player.setPosition(Position.fromValue(playerElement.getElementsByTagName(POSITION).item(0).getTextContent()));
         return player;
-
     }
 
     private Coach getCoach(Element coachElement) {
@@ -149,10 +141,11 @@ public class DomUnmarshaller implements Unmarshaller {
 
     private Stadium getStadium(Element stadiumElement) {
         Stadium stadium = new Stadium();
+        stadium.setId(stadiumElement.getAttributeNode(ID).getTextContent());
         Element general = (Element) stadiumElement.getElementsByTagName(GENERAL).item(0);
         stadium.setGeneral((StadiumInfo) getInfo(general));
         stadium.setCapacity(Integer.parseInt(stadiumElement.getElementsByTagName(CAPACITY).item(0).getTextContent()));
         return stadium;
-
     }
+
 }

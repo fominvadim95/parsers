@@ -4,7 +4,8 @@ import ua.nure.entities.Teams;
 
 import java.io.File;
 
-public interface Marshaller {
+public interface TeamsMarshaller {
 
-    void marshall(Teams teams, File file);
+    void marshal(Teams teams, File file);
+
 }

@@ -3,6 +3,8 @@ package ua.nure.utils;
 
 public class XmlElements {
 
+    public static final String TEAMS = "teams";
+
     public static final String TEAM = "team";
 
     public static final String ID = "id";

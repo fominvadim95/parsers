@@ -77,7 +77,7 @@ public class Teams {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Teams:\n");
-        team.forEach(el -> sb.append(el.toString()).append("\n"));
+        team.forEach(t -> sb.append(t).append("\n"));
         return sb.toString();
     }
 

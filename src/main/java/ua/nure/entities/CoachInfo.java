@@ -16,9 +16,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for CoachInfo complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="CoachInfo">
  *   &lt;complexContent>
@@ -30,23 +30,19 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CoachInfo", propOrder = {
-    "age"
+        "age"
 })
 public class CoachInfo
-    extends Info
-{
+        extends Info {
 
     @XmlSchemaType(name = "integer")
     protected int age;
 
     /**
      * Gets the value of the age property.
-     * 
      */
     public int getAge() {
         return age;
@@ -54,10 +50,14 @@ public class CoachInfo
 
     /**
      * Sets the value of the age property.
-     * 
      */
     public void setAge(int value) {
         this.age = value;
+    }
+
+    @Override
+    public String toString() {
+        return "age=" + age + ", " + super.toString();
     }
 
 }

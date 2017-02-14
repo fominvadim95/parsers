@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * <p>Java class for Team complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="Team">
  *   &lt;complexContent>
@@ -40,16 +40,14 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Team", propOrder = {
-    "general",
-    "players",
-    "coach",
-    "sponsors",
-    "stadium"
+        "general",
+        "players",
+        "coach",
+        "sponsors",
+        "stadium"
 })
 public class Team {
 
@@ -71,11 +69,9 @@ public class Team {
 
     /**
      * Gets the value of the general property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Info }
-     *     
+     *
+     * @return possible object is
+     * {@link Info }
      */
     public Info getGeneral() {
         return general;
@@ -83,11 +79,9 @@ public class Team {
 
     /**
      * Sets the value of the general property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Info }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Info }
      */
     public void setGeneral(Info value) {
         this.general = value;
@@ -95,11 +89,9 @@ public class Team {
 
     /**
      * Gets the value of the players property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Players }
-     *     
+     *
+     * @return possible object is
+     * {@link Players }
      */
     public Players getPlayers() {
         return players;
@@ -107,11 +99,9 @@ public class Team {
 
     /**
      * Sets the value of the players property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Players }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Players }
      */
     public void setPlayers(Players value) {
         this.players = value;
@@ -119,11 +109,9 @@ public class Team {
 
     /**
      * Gets the value of the coach property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Coach }
-     *     
+     *
+     * @return possible object is
+     * {@link Coach }
      */
     public Coach getCoach() {
         return coach;
@@ -131,11 +119,9 @@ public class Team {
 
     /**
      * Sets the value of the coach property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Coach }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Coach }
      */
     public void setCoach(Coach value) {
         this.coach = value;
@@ -143,11 +129,9 @@ public class Team {
 
     /**
      * Gets the value of the sponsors property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Sponsors }
-     *     
+     *
+     * @return possible object is
+     * {@link Sponsors }
      */
     public Sponsors getSponsors() {
         return sponsors;
@@ -155,11 +139,9 @@ public class Team {
 
     /**
      * Sets the value of the sponsors property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Sponsors }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Sponsors }
      */
     public void setSponsors(Sponsors value) {
         this.sponsors = value;
@@ -167,11 +149,9 @@ public class Team {
 
     /**
      * Gets the value of the stadium property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Stadium }
-     *     
+     *
+     * @return possible object is
+     * {@link Stadium }
      */
     public Stadium getStadium() {
         return stadium;
@@ -179,11 +159,9 @@ public class Team {
 
     /**
      * Sets the value of the stadium property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Stadium }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Stadium }
      */
     public void setStadium(Stadium value) {
         this.stadium = value;
@@ -191,11 +169,9 @@ public class Team {
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -203,14 +179,21 @@ public class Team {
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;
+    }
+
+    @Override
+    public String toString() {
+        return "Team|" + "id='" + id + "\', " + general + ", " +
+                "\n\t" + players + ", " +
+                "\n\t" + coach + ", " +
+                "\n\t" + sponsors + ", " +
+                "\n\t" + stadium + '|';
     }
 
 }

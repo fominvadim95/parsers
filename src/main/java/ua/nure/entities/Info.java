@@ -17,9 +17,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Info complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="Info">
  *   &lt;complexContent>
@@ -32,18 +32,16 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Info", propOrder = {
-    "name",
-    "country"
+        "name",
+        "country"
 })
 @XmlSeeAlso({
-    StadiumInfo.class,
-    PlayerInfo.class,
-    CoachInfo.class
+        StadiumInfo.class,
+        PlayerInfo.class,
+        CoachInfo.class
 })
 public class Info {
 
@@ -54,11 +52,9 @@ public class Info {
 
     /**
      * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
@@ -66,11 +62,9 @@ public class Info {
 
     /**
      * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;
@@ -78,11 +72,9 @@ public class Info {
 
     /**
      * Gets the value of the country property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCountry() {
         return country;
@@ -90,14 +82,17 @@ public class Info {
 
     /**
      * Sets the value of the country property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCountry(String value) {
         this.country = value;
+    }
+
+    @Override
+    public String toString() {
+        return "name='" + name + '\'' + ", country='" + country + "\'";
     }
 
 }

@@ -2,51 +2,44 @@
 <teams xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="teams.xsd">
     <team id="t1">
         <general>
-            <name>Barcelona</name>
+            <name>Real Madrid</name>
             <country>Spain</country>
         </general>
         <players>
             <player id="p1">
                 <general>
-                    <name>Messi</name>
-                    <country>Argentina</country>
-                    <age>29</age>
+                    <name>Ronaldo</name>
+                    <country>Portugal</country>
+                    <age>32</age>
                 </general>
-                <cost>250</cost>
-                <position>F</position>
+                <cost>150</cost>
+                <position>FB</position>
             </player>
         </players>
         <coach id="c1">
             <general>
-                <name>Enrique</name>
-                <country>Spain</country>
-                <age>75</age>
+                <name>Zidane</name>
+                <country>France</country>
+                <age>44</age>
             </general>
-            <experience>5</experience>
+            <experience>7</experience>
         </coach>
         <sponsors>
-            <sponsor id="audi">
+            <sponsor id="sp1">
                 <general>
-                    <name>Audi</name>
-                    <country>Germany</country>
+                    <name>Emirates Airlines</name>
+                    <country>UAE</country>
                 </general>
-                <year>2011</year>
-            </sponsor>
-            <sponsor id="estrella">
-                <general>
-                    <name>Estrella Damm</name>
-                    <country>Spain</country>
-                </general>
-                <year>2014</year>
+                <year>2020</year>
             </sponsor>
         </sponsors>
-        <stadium id="s1">
+        <stadium id="st1">
             <general>
-                <name>Camp Nou</name>
+                <name>Santiago Bernabeu</name>
                 <country>Spain</country>
-                <city>Barcelona</city>
+                <city>Madrid</city>
             </general>
-            <capacity>99354</capacity>
+            <capacity>81044</capacity>
         </stadium>
     </team>
 </teams>

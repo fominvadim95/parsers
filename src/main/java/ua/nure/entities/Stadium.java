@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * <p>Java class for Stadium complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="Stadium">
  *   &lt;complexContent>
@@ -37,13 +37,11 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Stadium", propOrder = {
-    "general",
-    "capacity"
+        "general",
+        "capacity"
 })
 public class Stadium {
 
@@ -59,11 +57,9 @@ public class Stadium {
 
     /**
      * Gets the value of the general property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link StadiumInfo }
-     *     
+     *
+     * @return possible object is
+     * {@link StadiumInfo }
      */
     public StadiumInfo getGeneral() {
         return general;
@@ -71,11 +67,9 @@ public class Stadium {
 
     /**
      * Sets the value of the general property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link StadiumInfo }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link StadiumInfo }
      */
     public void setGeneral(StadiumInfo value) {
         this.general = value;
@@ -83,7 +77,6 @@ public class Stadium {
 
     /**
      * Gets the value of the capacity property.
-     * 
      */
     public int getCapacity() {
         return capacity;
@@ -91,7 +84,6 @@ public class Stadium {
 
     /**
      * Sets the value of the capacity property.
-     * 
      */
     public void setCapacity(int value) {
         this.capacity = value;
@@ -99,11 +91,9 @@ public class Stadium {
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -111,14 +101,17 @@ public class Stadium {
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;
+    }
+
+    @Override
+    public String toString() {
+        return "Stadium{" + "id='" + id + "\', " + general + ", capacity=" + capacity + '}';
     }
 
 }

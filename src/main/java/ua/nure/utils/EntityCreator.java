@@ -4,9 +4,9 @@ import ua.nure.entities.*;
 
 import java.util.List;
 
-public class Creator {
+public class EntityCreator {
 
-    public Teams createTeamsList() {
+    public Teams createTeams() {
         Teams teams = new Teams();
         teams.getTeam().add(createTeam());
         return teams;
@@ -75,19 +75,15 @@ public class Creator {
         return sponsor;
     }
 
-    public Sponsors createSponsorList(){
+    public Sponsors createSponsors(){
         Sponsors sponsors = new Sponsors();
-        List<Sponsor> list = sponsors.getSponsor();
-        list.add(createSponsor());
-        sponsors.getSponsor().addAll(list);
+        sponsors.getSponsor().add(createSponsor());
         return sponsors;
     }
 
-    public Players createPlayerList(){
+    public Players createPlayers(){
         Players players = new Players();
-        List<Player> list = players.getPlayer();
-        list.add(createPlayer());
-        players.getPlayer().addAll(list);
+        players.getPlayer().add(createPlayer());
         return players;
     }
 
@@ -105,8 +101,8 @@ public class Creator {
         team.setGeneral(createTeamInfo());
         team.setCoach(createCoach());
         team.setStadium(createStadium());
-        team.setPlayers(createPlayerList());
-        team.setSponsors(createSponsorList());
+        team.setPlayers(createPlayers());
+        team.setSponsors(createSponsors());
         return team;
     }
 

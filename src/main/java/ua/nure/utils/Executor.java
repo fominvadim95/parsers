@@ -11,23 +11,38 @@ import java.io.File;
 
 public class Executor {
 
+    public static final String DOM = "DOM Parser";
+    public static final String JAXB = "JAXB Parser";
+    public static final String SAX = "SAX Parser";
+    public static final String LINE = "-------------------------";
+
     private static final String INPUT_FILE = "src/main/resources/teams.xml";
-    private static final String OUTPUT_FILE = "src/main/resources/jaxb.xml";
+    private static final String OUTPUT_JAXB = "src/main/resources/jaxb.xml";
 
     public static void main(String[] args) {
 
-        TeamsUnmarshaller domUnmarshaller = new DomUnmarshaller();
-        System.out.print(domUnmarshaller.unmarshal(new File(INPUT_FILE)));
+        System.out.println(DOM);
+        System.out.println(LINE);
 
-        System.out.println("JAXB Parser");
+        TeamsUnmarshaller unmarshaller = new DomUnmarshaller();
+        Teams teams = unmarshaller.unmarshal(new File(INPUT_FILE));
+        System.out.println(teams);
+
+        System.out.println(JAXB);
+        System.out.println(LINE);
 
         TeamsUnmarshaller jaxbUnmarshaller = new JAXBUnmarshaller();
-        Teams teams = jaxbUnmarshaller.unmarshal(new File(INPUT_FILE));
-        System.out.println(teams.getTeam());
+        teams = jaxbUnmarshaller.unmarshal(new File(INPUT_FILE));
+        System.out.println(teams);
 
         TeamsMarshaller jaxbMarshaller = new JAXBMarshaller();
-        teams = domUnmarshaller.unmarshal(new File(INPUT_FILE));
-        jaxbMarshaller.marshal(teams, new File(OUTPUT_FILE));
+        EntityCreator creator = new EntityCreator();
+        teams = creator.createTeams();
+        jaxbMarshaller.marshal(teams, new File(OUTPUT_JAXB));
+
+//        System.out.println(SAX);
+//        System.out.println(LINE);
+//        Uliana's code
     }
 
 }

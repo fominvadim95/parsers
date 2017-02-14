@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * <p>Java class for Coach complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="Coach">
  *   &lt;complexContent>
@@ -37,13 +37,11 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Coach", propOrder = {
-    "general",
-    "experience"
+        "general",
+        "experience"
 })
 public class Coach {
 
@@ -59,11 +57,9 @@ public class Coach {
 
     /**
      * Gets the value of the general property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CoachInfo }
-     *     
+     *
+     * @return possible object is
+     * {@link CoachInfo }
      */
     public CoachInfo getGeneral() {
         return general;
@@ -71,11 +67,9 @@ public class Coach {
 
     /**
      * Sets the value of the general property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CoachInfo }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link CoachInfo }
      */
     public void setGeneral(CoachInfo value) {
         this.general = value;
@@ -83,7 +77,6 @@ public class Coach {
 
     /**
      * Gets the value of the experience property.
-     * 
      */
     public int getExperience() {
         return experience;
@@ -91,7 +84,6 @@ public class Coach {
 
     /**
      * Sets the value of the experience property.
-     * 
      */
     public void setExperience(int value) {
         this.experience = value;
@@ -99,11 +91,9 @@ public class Coach {
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -111,14 +101,17 @@ public class Coach {
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;
+    }
+
+    @Override
+    public String toString() {
+        return "Coach{" + "id='" + id + "\', " + general + ", experience=" + experience + '}';
     }
 
 }

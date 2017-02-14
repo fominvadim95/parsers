@@ -18,9 +18,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Sponsors complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="Sponsors">
  *   &lt;complexContent>
@@ -32,12 +32,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Sponsors", propOrder = {
-    "sponsor"
+        "sponsor"
 })
 public class Sponsors {
 
@@ -46,31 +44,43 @@ public class Sponsors {
 
     /**
      * Gets the value of the sponsor property.
-     * 
+     * <p>
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the sponsor property.
-     * 
+     * <p>
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getSponsor().add(newItem);
      * </pre>
-     * 
-     * 
+     * <p>
+     * <p>
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Sponsor }
-     * 
-     * 
      */
     public List<Sponsor> getSponsor() {
         if (sponsor == null) {
             sponsor = new ArrayList<Sponsor>();
         }
         return this.sponsor;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Sponsors: ");
+        for (int i = 0; i < sponsor.size(); i++) {
+            if (i == sponsor.size() - 1) {
+                sb.append(sponsor.get(i));
+            } else {
+                sb.append(sponsor.get(i)).append("; ");
+            }
+        }
+        return sb.toString();
     }
 
 }

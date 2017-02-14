@@ -18,9 +18,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Players complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="Players">
  *   &lt;complexContent>
@@ -32,12 +32,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Players", propOrder = {
-    "player"
+        "player"
 })
 public class Players {
 
@@ -46,31 +44,43 @@ public class Players {
 
     /**
      * Gets the value of the player property.
-     * 
+     * <p>
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the player property.
-     * 
+     * <p>
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getPlayer().add(newItem);
      * </pre>
-     * 
-     * 
+     * <p>
+     * <p>
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Player }
-     * 
-     * 
      */
     public List<Player> getPlayer() {
         if (player == null) {
             player = new ArrayList<Player>();
         }
         return this.player;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Players: ");
+        for (int i = 0; i < player.size(); i++) {
+            if (i == player.size() - 1) {
+                sb.append(player.get(i));
+            } else {
+                sb.append(player.get(i)).append("; ");
+            }
+        }
+        return sb.toString();
     }
 
 }

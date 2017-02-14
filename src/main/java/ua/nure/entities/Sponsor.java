@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * <p>Java class for Sponsor complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="Sponsor">
  *   &lt;complexContent>
@@ -37,13 +37,11 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Sponsor", propOrder = {
-    "general",
-    "year"
+        "general",
+        "year"
 })
 public class Sponsor {
 
@@ -59,11 +57,9 @@ public class Sponsor {
 
     /**
      * Gets the value of the general property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Info }
-     *     
+     *
+     * @return possible object is
+     * {@link Info }
      */
     public Info getGeneral() {
         return general;
@@ -71,11 +67,9 @@ public class Sponsor {
 
     /**
      * Sets the value of the general property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Info }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Info }
      */
     public void setGeneral(Info value) {
         this.general = value;
@@ -83,7 +77,6 @@ public class Sponsor {
 
     /**
      * Gets the value of the year property.
-     * 
      */
     public int getYear() {
         return year;
@@ -91,7 +84,6 @@ public class Sponsor {
 
     /**
      * Sets the value of the year property.
-     * 
      */
     public void setYear(int value) {
         this.year = value;
@@ -99,11 +91,9 @@ public class Sponsor {
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -111,14 +101,17 @@ public class Sponsor {
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;
+    }
+
+    @Override
+    public String toString() {
+        return "Sponsor{" + "id='" + id + "\', " + general + ", year=" + year + '}';
     }
 
 }

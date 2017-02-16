@@ -3,10 +3,11 @@ package ua.nure.utils;
 import ua.nure.entities.Teams;
 import ua.nure.parsers.TeamsMarshaller;
 import ua.nure.parsers.TeamsUnmarshaller;
-import ua.nure.parsers.dom.DomMarshaller;
-import ua.nure.parsers.dom.DomUnmarshaller;
+import ua.nure.parsers.dom.DOMMarshaller;
+import ua.nure.parsers.dom.DOMUnmarshaller;
 import ua.nure.parsers.jaxb.JAXBMarshaller;
 import ua.nure.parsers.jaxb.JAXBUnmarshaller;
+import ua.nure.parsers.sax.SAXUnmarshaller;
 
 import java.io.File;
 
@@ -27,11 +28,11 @@ public class Executor {
         System.out.println(DOM);
         System.out.println(LINE);
 
-        TeamsUnmarshaller unmarshaller = new DomUnmarshaller();
+        TeamsUnmarshaller unmarshaller = new DOMUnmarshaller();
         Teams teams = unmarshaller.unmarshal(new File(INPUT_FILE));
         System.out.println(teams);
 
-        TeamsMarshaller marshaller = new DomMarshaller();
+        TeamsMarshaller marshaller = new DOMMarshaller();
         marshaller.marshal(teams, new File(OUTPUT_DOM));
 
         System.out.println(JAXB);
@@ -46,9 +47,12 @@ public class Executor {
         teams = creator.createTeams();
         jaxbMarshaller.marshal(teams, new File(OUTPUT_JAXB));
 
-//        System.out.println(SAX);
-//        System.out.println(LINE);
-//        Uliana's code
+        System.out.println(SAX);
+        System.out.println(LINE);
+
+        TeamsUnmarshaller saxUnmarshaller = new SAXUnmarshaller();
+        teams = saxUnmarshaller.unmarshal(new File(INPUT_FILE));
+        System.out.println(teams);
     }
 
 }

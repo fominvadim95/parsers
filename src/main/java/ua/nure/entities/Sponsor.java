@@ -47,8 +47,10 @@ public class Sponsor {
 
     @XmlElement(required = true)
     protected Info general;
+
     @XmlSchemaType(name = "integer")
     protected int year;
+
     @XmlAttribute(name = "id", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID

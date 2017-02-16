@@ -21,7 +21,7 @@ import java.io.IOException;
 
 import static ua.nure.utils.XMLTag.*;
 
-public class DomMarshaller implements TeamsMarshaller {
+public class DOMMarshaller implements TeamsMarshaller {
 
     private static final String NAMESPACE = "xmlns:xsi";
 

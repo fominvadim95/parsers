@@ -49,11 +49,14 @@ public class Player {
 
     @XmlElement(required = true)
     protected PlayerInfo general;
+
     @XmlSchemaType(name = "integer")
     protected int cost;
+
     @XmlElement(required = true)
     @XmlSchemaType(name = "string")
     protected Position position;
+
     @XmlAttribute(name = "id", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID

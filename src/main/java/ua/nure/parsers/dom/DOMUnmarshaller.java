@@ -18,7 +18,7 @@ import java.util.List;
 
 import static ua.nure.utils.XMLTag.*;
 
-public class DomUnmarshaller implements TeamsUnmarshaller {
+public class DOMUnmarshaller implements TeamsUnmarshaller {
 
     @Override
     public Teams unmarshal(File file) {

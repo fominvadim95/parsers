@@ -47,8 +47,10 @@ public class Coach {
 
     @XmlElement(required = true)
     protected CoachInfo general;
+
     @XmlSchemaType(name = "integer")
     protected int experience;
+
     @XmlAttribute(name = "id", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID

@@ -1,0 +1,2 @@
+- XML parsers implementation: JAXB, DOM, SAX;
+- HTML generation based on XML using XSLT.

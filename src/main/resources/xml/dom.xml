@@ -1,1 +1,78 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><teams xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/teams.xsd"><team id="t1"><general><name>Barcelona</name><country>Spain</country></general><players><player id="p1"><general><name>Messi</name><country>Argentina</country><age>29</age></general><cost>250</cost><position>F</position></player><player id="p2"><general><name>Rakitic</name><country>Croatia</country><age>28</age></general><cost>70</cost><position>CM</position></player><player id="p3"><general><name>Neymar</name><country>Brazil</country><age>25</age></general><cost>120</cost><position>FM</position></player></players><coach id="c1"><general><name>Enrique</name><country>Spain</country><age>75</age></general><experience>5</experience></coach><sponsors><sponsor id="audi"><general><name>Audi</name><country>Germany</country></general><year>2017</year></sponsor><sponsor id="estrella"><general><name>Estrella Damm</name><country>Spain</country></general><year>2022</year></sponsor><sponsor id="coca-cola"><general><name>Coca-Cola</name><country>USA</country></general><year>2019</year></sponsor></sponsors><stadium id="s1"><general><name>Camp Nou</name><country>Spain</country><city>Barcelona</city></general><capacity>99354</capacity></stadium></team></teams>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<teams xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="../xsd/teams.xsd">
+    <team id="t1">
+        <general>
+            <name>Barcelona</name>
+            <country>Spain</country>
+        </general>
+        <players>
+            <player id="p1">
+                <general>
+                    <name>Messi</name>
+                    <country>Argentina</country>
+                    <age>29</age>
+                </general>
+                <cost>250</cost>
+                <position>F</position>
+            </player>
+            <player id="p2">
+                <general>
+                    <name>Rakitic</name>
+                    <country>Croatia</country>
+                    <age>28</age>
+                </general>
+                <cost>70</cost>
+                <position>CM</position>
+            </player>
+            <player id="p3">
+                <general>
+                    <name>Neymar</name>
+                    <country>Brazil</country>
+                    <age>25</age>
+                </general>
+                <cost>120</cost>
+                <position>FM</position>
+            </player>
+        </players>
+        <coach id="c1">
+            <general>
+                <name>Enrique</name>
+                <country>Spain</country>
+                <age>75</age>
+            </general>
+            <experience>5</experience>
+        </coach>
+        <sponsors>
+            <sponsor id="audi">
+                <general>
+                    <name>Audi</name>
+                    <country>Germany</country>
+                </general>
+                <year>2017</year>
+            </sponsor>
+            <sponsor id="estrella">
+                <general>
+                    <name>Estrella Damm</name>
+                    <country>Spain</country>
+                </general>
+                <year>2022</year>
+            </sponsor>
+            <sponsor id="coca-cola">
+                <general>
+                    <name>Coca-Cola</name>
+                    <country>USA</country>
+                </general>
+                <year>2019</year>
+            </sponsor>
+        </sponsors>
+        <stadium id="s1">
+            <general>
+                <name>Camp Nou</name>
+                <country>Spain</country>
+                <city>Barcelona</city>
+            </general>
+            <capacity>99354</capacity>
+        </stadium>
+    </team>
+</teams>

@@ -20,16 +20,13 @@ public class SAXUnmarshaller extends DefaultHandler implements TeamsUnmarshaller
     public Team team;
     public Info info;
 
-    //players
     public Players players;
     public Player player;
     public PlayerInfo playerInfo;
 
-    //coach
     public Coach coach;
     public CoachInfo coachInfo;
 
-    //sponsor
     public Sponsors sponsors;
     public Sponsor sponsor;
     public Info sponsorInfo;
@@ -68,8 +65,6 @@ public class SAXUnmarshaller extends DefaultHandler implements TeamsUnmarshaller
             return;
         }
 
-        //players
-
         if (XMLTag.PLAYERS.equals(currentElement)) {
             players = new Players();
             return;
@@ -81,17 +76,11 @@ public class SAXUnmarshaller extends DefaultHandler implements TeamsUnmarshaller
             return;
         }
 
-
-        //coach
-
         if (XMLTag.COACH.equals(currentElement)) {
             coach = new Coach();
             coach.setId(resolveAttr(uri, attributes));
             return;
         }
-
-
-        //sponsors
 
         if (XMLTag.SPONSORS.equals(currentElement)) {
             sponsors = new Sponsors();
@@ -103,9 +92,6 @@ public class SAXUnmarshaller extends DefaultHandler implements TeamsUnmarshaller
             sponsor.setId(resolveAttr(uri, attributes));
             return;
         }
-
-
-        //stadium
 
         if (XMLTag.STADIUM.equals(currentElement)) {
             stadium = new Stadium();
@@ -150,7 +136,6 @@ public class SAXUnmarshaller extends DefaultHandler implements TeamsUnmarshaller
         if (elementText.isEmpty()) {
             return;
         }
-
 
         if (XMLTag.NAME.equals(currentElement)) {
             if (info != null) {
@@ -236,7 +221,6 @@ public class SAXUnmarshaller extends DefaultHandler implements TeamsUnmarshaller
             stadium.setCapacity(Integer.valueOf(elementText));
             return;
         }
-
     }
 
     @Override
@@ -248,9 +232,6 @@ public class SAXUnmarshaller extends DefaultHandler implements TeamsUnmarshaller
             team = null;
             return;
         }
-
-
-        //players
 
         if (XMLTag.PLAYERS.equals(nameLocal)) {
             team.setPlayers(players);
@@ -264,17 +245,11 @@ public class SAXUnmarshaller extends DefaultHandler implements TeamsUnmarshaller
             return;
         }
 
-
-        //coach
-
         if (XMLTag.COACH.equals(nameLocal)) {
             team.setCoach(coach);
             coach = null;
             return;
         }
-
-
-        //sponsors
 
         if (XMLTag.SPONSORS.equals(nameLocal)) {
             team.setSponsors(sponsors);
@@ -287,9 +262,6 @@ public class SAXUnmarshaller extends DefaultHandler implements TeamsUnmarshaller
             sponsor = null;
             return;
         }
-
-
-        //stadium
 
         if (XMLTag.STADIUM.equals(nameLocal)) {
             team.setStadium(stadium);

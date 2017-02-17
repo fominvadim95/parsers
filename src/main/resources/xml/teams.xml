@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<teams xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="teams.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<teams xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="../xsd/teams.xsd">
+
     <team id="t1">
         <general>
             <name>Barcelona</name>
@@ -14,6 +16,15 @@
                 </general>
                 <cost>250</cost>
                 <position>F</position>
+            </player>
+            <player id="p2">
+                <general>
+                    <name>Rakitic</name>
+                    <country>Croatia</country>
+                    <age>28</age>
+                </general>
+                <cost>70</cost>
+                <position>CM</position>
             </player>
         </players>
         <coach id="c1">

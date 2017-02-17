@@ -45,15 +45,17 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 })
 public class Stadium {
 
-    @XmlElement(required = true)
-    protected StadiumInfo general;
-    @XmlSchemaType(name = "integer")
-    protected int capacity;
     @XmlAttribute(name = "id", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
     @XmlSchemaType(name = "ID")
     protected String id;
+
+    @XmlElement(required = true)
+    protected StadiumInfo general;
+
+    @XmlSchemaType(name = "integer")
+    protected int capacity;
 
     /**
      * Gets the value of the general property.

@@ -51,21 +51,26 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 })
 public class Team {
 
-    @XmlElement(required = true)
-    protected Info general;
-    @XmlElement(required = true)
-    protected Players players;
-    @XmlElement(required = true)
-    protected Coach coach;
-    @XmlElement(required = true)
-    protected Sponsors sponsors;
-    @XmlElement(required = true)
-    protected Stadium stadium;
     @XmlAttribute(name = "id", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
     @XmlSchemaType(name = "ID")
     protected String id;
+
+    @XmlElement(required = true)
+    protected Info general;
+
+    @XmlElement(required = true)
+    protected Players players;
+
+    @XmlElement(required = true)
+    protected Coach coach;
+
+    @XmlElement(required = true)
+    protected Sponsors sponsors;
+
+    @XmlElement(required = true)
+    protected Stadium stadium;
 
     /**
      * Gets the value of the general property.

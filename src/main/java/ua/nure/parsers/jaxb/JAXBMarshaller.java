@@ -18,7 +18,7 @@ public class JAXBMarshaller implements TeamsMarshaller {
             JAXBContext jc = JAXBContext.newInstance(ObjectFactory.class);
             Marshaller marshaller = jc.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION,
-                    "teams.xsd");
+                    "../xsd/teams.xsd");
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             marshaller.marshal(teams, os);
         } catch (Exception e) {

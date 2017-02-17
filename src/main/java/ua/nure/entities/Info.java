@@ -47,6 +47,7 @@ public class Info {
 
     @XmlElement(required = true)
     protected String name;
+
     @XmlElement(required = true)
     protected String country;
 

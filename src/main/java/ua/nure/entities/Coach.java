@@ -45,17 +45,17 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 })
 public class Coach {
 
-    @XmlElement(required = true)
-    protected CoachInfo general;
-
-    @XmlSchemaType(name = "integer")
-    protected int experience;
-
     @XmlAttribute(name = "id", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
     @XmlSchemaType(name = "ID")
     protected String id;
+
+    @XmlElement(required = true)
+    protected CoachInfo general;
+
+    @XmlSchemaType(name = "integer")
+    protected int experience;
 
     /**
      * Gets the value of the general property.

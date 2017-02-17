@@ -28,7 +28,7 @@ public class DOMMarshaller implements TeamsMarshaller {
 
     private static final String SCHEMA_LOCATION = "xsi:noNamespaceSchemaLocation";
 
-    private static final String SCHEMA_LOCATION_VALUE = "xsd/teams.xsd";
+    private static final String SCHEMA_LOCATION_VALUE = "../xsd/teams.xsd";
 
     @Override
     public void marshal(Teams teams, File file) {

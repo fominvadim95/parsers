@@ -26,6 +26,15 @@
                 <cost>70</cost>
                 <position>CM</position>
             </player>
+            <player id="p3">
+                <general>
+                    <name>Neymar</name>
+                    <country>Brazil</country>
+                    <age>25</age>
+                </general>
+                <cost>120</cost>
+                <position>FM</position>
+            </player>
         </players>
         <coach id="c1">
             <general>
@@ -41,14 +50,21 @@
                     <name>Audi</name>
                     <country>Germany</country>
                 </general>
-                <year>2011</year>
+                <year>2017</year>
             </sponsor>
             <sponsor id="estrella">
                 <general>
                     <name>Estrella Damm</name>
                     <country>Spain</country>
                 </general>
-                <year>2014</year>
+                <year>2022</year>
+            </sponsor>
+            <sponsor id="coca-cola">
+                <general>
+                    <name>Coca-Cola</name>
+                    <country>USA</country>
+                </general>
+                <year>2019</year>
             </sponsor>
         </sponsors>
         <stadium id="s1">

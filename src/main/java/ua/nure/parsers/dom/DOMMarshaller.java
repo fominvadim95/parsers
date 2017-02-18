@@ -10,6 +10,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -28,7 +29,7 @@ public class DOMMarshaller implements TeamsMarshaller {
 
     private static final String SCHEMA_LOCATION = "xsi:noNamespaceSchemaLocation";
 
-    private static final String SCHEMA_LOCATION_VALUE = "../xsd/teams.xsd";
+    private static final String SCHEMA_LOCATION_VALUE = "teams.xsd";
 
     @Override
     public void marshal(Teams teams, File file) {
@@ -51,9 +52,17 @@ public class DOMMarshaller implements TeamsMarshaller {
             FileOutputStream fos = new FileOutputStream(file);
             StreamResult result = new StreamResult(fos);
             tr.transform(source, result);
-        } catch (ParserConfigurationException | IOException | TransformerException e) {
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TransformerConfigurationException e) {
+            e.printStackTrace();
+        } catch (TransformerException e) {
             e.printStackTrace();
         }
+
+
     }
 
     private Element getTeam(Team team, Document document) {
@@ -91,6 +100,7 @@ public class DOMMarshaller implements TeamsMarshaller {
         infoElement.appendChild(country);
         return infoElement;
     }
+
 
     private Element getPlayerInfo(PlayerInfo info, Document document) {
         Element generalInfo = getGeneralInfo(info, document);

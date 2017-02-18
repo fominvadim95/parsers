@@ -1,5 +1,4 @@
 body {
-	margin-top: 20px;
     background-color: #E0EEE0;
     font-family: Verdana, Arial, Helvetica, sans-serif;
     color: black;
@@ -7,17 +6,18 @@ body {
 }
 
 table {
+    margin-top: 20px;
     border: 3px solid black;
     text-align: left;
 }
 
 th {
-	font-size: 17px;
-	text-align: center ;
+    font-size: 17px;
+    text-align: center;
     background-color: #FDF5E6;
 }
 
 td, th {
-	font-size: 15px;
+    font-size: 15px;
     border-left: 2px solid black;
 }

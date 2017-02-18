@@ -47,6 +47,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 })
 public class Player {
 
+    @XmlAttribute(name = "id", required = true)
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlID
+    @XmlSchemaType(name = "ID")
+    protected String id;
+
     @XmlElement(required = true)
     protected PlayerInfo general;
 
@@ -56,12 +62,6 @@ public class Player {
     @XmlElement(required = true)
     @XmlSchemaType(name = "string")
     protected Position position;
-
-    @XmlAttribute(name = "id", required = true)
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlID
-    @XmlSchemaType(name = "ID")
-    protected String id;
 
     /**
      * Gets the value of the general property.
